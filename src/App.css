@@ -1,0 +1,58 @@
+.contactbox {
+  background-color: transparent;
+  border: 1.5px solid #e2f6de;
+  padding: 10px 0 0 0px;
+  transition: all 0.3s;
+  position: relative;
+  z-index: 1;
+}
+
+.contactbox::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 175px;
+  width: 175px;
+  background: url(../img/letus-leaf.png);
+  background-repeat: no-repeat;
+  background-position: left top;
+  opacity: 0;
+  transition: all 0.3s;
+  z-index: -1;
+}
+
+.contactbox .features-icon-border {
+  background-color: transparent;
+  border-radius: 50%;
+  border: 2px solid #e2f6de;
+  padding: 13px;
+  display: inline-block;
+}
+
+.contactbox .features-icon {
+  height: 65px;
+  width: 65px;
+  background-color: #e2f6de;
+  margin: auto;
+  border-radius: 50%;
+}
+
+.contactbox .features-icon i {
+  text-align: center;
+  font-size: 37px;
+  line-height: 1.8;
+  color: #36970e;
+}
+
+.contactbox h3 {
+  color: #03262c;
+  font-size: 30px;
+  text-transform: capitalize;
+  font-family: "Barlow Condensed", sans-serif;
+  font-weight: 700;
+  margin-top: 10px;
+}
+.my-custom-margin {
+  margin-top: 10px; /* Adjust the value as needed */
+}

@@ -1,0 +1,7 @@
+User-agent: *
+Disallow: /admin/
+Disallow: /login/
+Disallow: /cart/
+Disallow: /checkout/
+Allow: /
+Sitemap: https://spicesmanufacturer.in/sitemap.xml
