@@ -4,23 +4,74 @@ import Card from "../ThirdParty/Card";
 import img from "../../assets/img/singleform.jpg";
 import img1 from "../../assets/img/Blended.jpg";
 import wholespices from "../../assets/img/Wholespices.jpg";
+import data from "../../Data/faridabadData.json";
 
 function Faridabaad() {
+  const { faqs, pageContent } = data;
   return (
     <>
       <Pagetop2 title="Faridabad" />
-      <div className="container">
-        <div className="row p-5">
-          <div className="col-12 text-center">
-            <h3 className="section-title">
-            Unleash the Authentic Flavors of India with Faridabad Premier Spice Solutions
-            </h3>
-            <p className="section-subtitle">
-            Embark on a culinary journey with Faridabads most trusted spices manufacturer, where tradition meets quality. We are not just a supplier; we are artisans crafting the essence of Indian cuisine. As the best masala supplier in Faridabad, our meticulously blended spices promise to elevate your dishes to new heights. We understand the diverse needs of our clientele, offering comprehensive solutions for those seeking wholesale spices in Faridabad. Our bulk offerings ensure consistent quality and competitive pricing, perfect for restaurants, catering services, and retail businesses. For the health-conscious consumer, our organic spices supplier in Faridabad selection provides pure, unadulterated flavors, cultivated with sustainable practices. Recognizing the global appeal of Indian spices, we are proud spices exporters in Faridabad, delivering the rich tapestry of our flavors to international markets. Our commitment to excellence extends to our bulk spices supplier in Faridabad services, designed to meet the demands of large-scale operations without compromising on freshness or aroma. As a dedicated Indian masala manufacturer in Faridabad, we blend traditional recipes with cutting-edge technology, ensuring each spice packet encapsulates the authentic taste of India. Explore our extensive range, from classic garam masala to exotic blends, and experience the unparalleled quality that sets us apart. Partner with us, and let us be the secret ingredient to your culinary success, delivering the finest spices directly from the heart of Faridabad. We guarantee satisfaction with every order
-            </p>
-          </div>
+      <div className="container" style={{ marginTop: "45px" }}>
+        <div className="p-5">
+          {pageContent.map((block, index) => {
+            if (block.type === "heading") {
+              const Tag = `h${block.level}`;
+              return <Tag key={index}>{block.text}</Tag>;
+            }
+            if (block.type === "paragraph") {
+              return (
+                <p className="mt-3" key={index}>
+                  {block.text}
+                </p>
+              );
+            }
+            if (block.type === "list") {
+              return (
+                <ul key={index} className=" mt-3">
+                  {block.items.map((item, i) => (
+                    <li key={i}>{item}</li>
+                  ))}
+                </ul>
+              );
+            }
+            return null;
+          })}
         </div>
-        <div className="row p-5">
+
+        {/* FAQ Section */}
+        <div className="accordion p-5" id="accordionExample">
+          {faqs.map((faq, index) => (
+            <div className="accordion-item" key={faq.id}>
+              <h2 className="accordion-header" id={`heading${faq.id}`}>
+                <button
+                  className={`accordion-button ${
+                    index !== 0 ? "collapsed" : ""
+                  }`}
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target={`#collapse${faq.id}`}
+                  aria-expanded={index === 0 ? "true" : "false"}
+                  aria-controls={`collapse${faq.id}`}
+                >
+                  {faq.question}
+                </button>
+              </h2>
+              <div
+                id={`collapse${faq.id}`}
+                className={`accordion-collapse collapse ${
+                  index === 0 ? "show" : ""
+                }`}
+                aria-labelledby={`heading${faq.id}`}
+                data-bs-parent="#accordionExample"
+              >
+                <div className="accordion-body">{faq.answer}</div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+      <div className="container">
+        <div className="row p-5 ">
           <Card
             product="blended spices"
             image={img1}

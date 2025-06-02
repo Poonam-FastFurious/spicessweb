@@ -1,0 +1,82 @@
+{
+  "faqs": [
+    {
+      "id": 1,
+      "question": "Are you a wholesale spices supplier in Delhi?",
+      "answer": "Yes. Kafal Spices provides wholesale spices in Delhi with consistent quality and competitive pricing."
+    },
+    {
+      "id": 2,
+      "question": "Do you offer organic spices in Delhi NCR?",
+      "answer": "Absolutely. We supply certified organic spices to health-conscious retailers and private brands."
+    },
+    {
+      "id": 3,
+      "question": "Do you export spices from Delhi NCR?",
+      "answer": "Yes. As a top spices exporter in Delhi, we handle international orders with proper packaging, labeling, and documentation."
+    }
+  ],
+  "pageContent": [
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Spice Manufacturers in Delhi – Bulk Supplier & Exporter"
+    },
+    {
+      "type": "paragraph",
+      "text": "Looking for trusted spice manufacturers in Delhi? Kafal Spices delivers purity, flavor, and consistency across a wide range of Indian spices—available in retail, bulk, and export packaging."
+    },
+    {
+      "type": "heading",
+      "level": 4,
+      "text": "Supplying Quality Spices Across Delhi NCR"
+    },
+    {
+      "type": "paragraph",
+      "text": "We serve:"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Hotels, restaurants, and caterers (HORECA)",
+        "FMCG brands and spice retailers",
+        "Wholesalers & spice traders",
+        "Private label masala businesses (OEM)"
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "With streamlined supply chains and a central location, we ensure timely fulfillment across Delhi NCR."
+    },
+    {
+      "type": "heading",
+      "level": 5,
+      "text": "Our Spices Range"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Powdered Spices – Turmeric, Chilli, Coriander",
+        "Whole Spices – Jeera, Cloves, Black Pepper",
+        "Blended Masalas – Garam Masala, Pav Bhaji, Chana Masala",
+        "Organic Spices – Soil-certified, lab-tested ingredients",
+        "Custom Solutions – Bulk packs, white-labeling, and private packaging"
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 5,
+      "text": "Why Choose Kafal Spices?"
+    },
+    {
+      "type": "list",
+      "items": [
+        "✅ Freshly milled, contamination-free spices",
+        "✅ Bulk & wholesale availability across Delhi",
+        "✅ Export-ready documentation & logistics",
+        "✅ Support for retail, OEM & organic product lines",
+        "✅ Trusted by brands across India and abroad"
+      ]
+    }
+  ]
+}

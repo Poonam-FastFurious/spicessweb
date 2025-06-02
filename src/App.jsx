@@ -41,7 +41,7 @@ function App() {
 
   useEffect(() => {
     fetchBlogList();
-  }, []);
+  }, [fetchBlogList]);
   const [isLoading, setIsLoading] = useState(true);
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -82,14 +82,8 @@ function App() {
               <Route path="/thirdparty" element={<ThirdParty />} />
               <Route path="/thirdparty/:name" element={<Detail />} />
               <Route path="/blog" element={<Bloglist />} />
-
               <Route path="/product/:title" element={<ProductDetails />} />
               <Route path="/horeca" element={<Horeca />} />
-              <Route path="/noida" element={<Noida />} />
-              <Route path="/delhi" element={<Delhi />} />
-              <Route path="/ghaziabad" element={<Ghaziabaad />} />
-              <Route path="/faridabad" element={<Faridabaad />} />
-              <Route path="/gurgaon" element={<Gurgaon />} />
               <Route path="/:link" element={<BlogDetail />} />
               <Route
                 path="/blogdetails/benefits-of-organics-spices"
@@ -106,6 +100,13 @@ function App() {
               <Route path="/blogdetails/Top-Spice" element={<TopSices />} />
               <Route path="/*" element={<Error404 />} status={404} />
               <Route path="/faq" element={<FAQ />} status={404} />
+              {/* seo pages */}
+
+              <Route path="/noida" element={<Noida />} />
+              <Route path="/delhi" element={<Delhi />} />
+              <Route path="/ghaziabad" element={<Ghaziabaad />} />
+              <Route path="/faridabad" element={<Faridabaad />} />
+              <Route path="/gurgaon" element={<Gurgaon />} />
             </Routes>
             <Footer />
           </BrowserRouter>

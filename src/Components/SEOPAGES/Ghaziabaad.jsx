@@ -4,58 +4,92 @@ import Card from "../ThirdParty/Card";
 import img from "../../assets/img/singleform.jpg";
 import img1 from "../../assets/img/Blended.jpg";
 import wholespices from "../../assets/img/Wholespices.jpg";
+import data from "../../Data/ghaziabadData.json";
 
 function Ghaziabaad() {
+    const { faqs, pageContent } = data;
   return (
     <>
       <Pagetop2 title="Ghaziabad" />
-      <div className="container">
-        <div className="row p-5">
-          <div className="col-12 text-center">
-            <h3 className="section-title">
-              Elevate Your Culinary Creations with Ghaziabad Premier Spices
-            </h3>
-            <p className="section-subtitle">
-              Discover the rich and authentic flavors of India with our premium
-              spice offerings. As a leading Spices Manufacturer in Ghaziabad, we
-              pride ourselves on delivering unparalleled quality and freshness.
-              Whether youre a home cook or a commercial enterprise, we cater to
-              all your needs. For those seeking the Best Masala Supplier in
-              Ghaziabad, look no further; our meticulously blended masalas are
-              crafted from the finest ingredients, ensuring a burst of flavor in
-              every dish. We are also recognized as a trusted provider of
-              Wholesale Spices in Ghaziabad, offering competitive prices for
-              bulk orders. Embrace health and purity with our selection of
-              Organic Spices Supplier in Ghaziabad, sourced sustainably and free
-              from harmful additives. Expanding our reach, we are also prominent
-              Spices Exporters in Ghaziabad, bringing the essence of Indian
-              spices to global kitchens. For large-scale requirements, we are
-              your reliable Bulk Spices Supplier in Ghaziabad, guaranteeing
-              consistent quality and timely delivery. Experience the difference
-              with our diverse range of spices, tailored to satisfy every palate
-              and culinary aspiration.
-            </p>
-          </div>
-        </div>
-        <div className="row p-5">
-          <Card
-            product="blended spices"
-            image={img1}
-            description="Kafal's blended spices are expertly crafted using premium-quality ingredients"
-          />
-          <Card
-            product="single form spices"
-            image={img}
-            description="Kafal's single-form spices are expertly crafted blends of high-quality spices"
-          />
-
-          <Card
-            product="whole spices"
-            image={wholespices}
-            description="Kafal's Whole spices offer a robust and authentic flavor, adding depth and complexity to any culinary creation"
-          />
-        </div>
-      </div>
+      <div className="container" style={{ marginTop: "45px" }}>
+              <div className="p-5">
+                {pageContent.map((block, index) => {
+                  if (block.type === "heading") {
+                    const Tag = `h${block.level}`;
+                    return <Tag key={index}>{block.text}</Tag>;
+                  }
+                  if (block.type === "paragraph") {
+                    return (
+                      <p className="mt-3" key={index}>
+                        {block.text}
+                      </p>
+                    );
+                  }
+                  if (block.type === "list") {
+                    return (
+                      <ul key={index} className=" mt-3">
+                        {block.items.map((item, i) => (
+                          <li key={i}>{item}</li>
+                        ))}
+                      </ul>
+                    );
+                  }
+                  return null;
+                })}
+              </div>
+      
+              {/* FAQ Section */}
+              <div className="accordion p-5" id="accordionExample">
+                {faqs.map((faq, index) => (
+                  <div className="accordion-item" key={faq.id}>
+                    <h2 className="accordion-header" id={`heading${faq.id}`}>
+                      <button
+                        className={`accordion-button ${
+                          index !== 0 ? "collapsed" : ""
+                        }`}
+                        type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target={`#collapse${faq.id}`}
+                        aria-expanded={index === 0 ? "true" : "false"}
+                        aria-controls={`collapse${faq.id}`}
+                      >
+                        {faq.question}
+                      </button>
+                    </h2>
+                    <div
+                      id={`collapse${faq.id}`}
+                      className={`accordion-collapse collapse ${
+                        index === 0 ? "show" : ""
+                      }`}
+                      aria-labelledby={`heading${faq.id}`}
+                      data-bs-parent="#accordionExample"
+                    >
+                      <div className="accordion-body">{faq.answer}</div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+            <div className="container">
+              <div className="row p-5 ">
+                <Card
+                  product="blended spices"
+                  image={img1}
+                  description="Kafal's blended spices are expertly crafted using premium-quality ingredients"
+                />
+                <Card
+                  product="single form spices"
+                  image={img}
+                  description="Kafal's single-form spices are expertly crafted blends of high-quality spices"
+                />
+      
+                <Card
+                  product="whole spices"
+                  image={wholespices}
+                  description="Kafal's Whole spices offer a robust and authentic flavor, adding depth and complexity to any culinary creation"
+                />
+              </div>
+            </div>
 
       <section className="bg-white container">
         <div className="py-5 lg:py-16 mx-auto max-w-screen-md">

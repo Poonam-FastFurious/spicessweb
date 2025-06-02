@@ -3,54 +3,76 @@ import img from "../../assets/img/singleform.jpg";
 import img1 from "../../assets/img/Blended.jpg";
 import wholespices from "../../assets/img/Wholespices.jpg";
 import Pagetop2 from "../PageTop/Pagetop2";
+import data from "../../Data/noidaData.json";
 function Noida() {
+  const { faqs, pageContent } = data;
+
   return (
     <>
       <Pagetop2 title="Noida" />
-      <div className="container">
-        <div className="row p-5">
-          <div className="col-12 text-center">
-            <h3 className="section-title">
-              Top Spices Manufacturer in Noida – Quality, Purity, and Flavors
-            </h3>
-            <p className="section-subtitle">
-              Looking for premium-quality spices in Noida? We are a trusted
-              spices manufacturer in Noida, offering a wide range of pure,
-              aromatic, and high-quality spices for households, restaurants, and
-              businesses.
-            </p>{" "}
-          </div>
-          <div className="col-12 text-center">
-            <h3 className="section-title">Best Spice Supplier in Noida</h3>
-            <p className="section-subtitle">
-              As a leading spice supplier in Noida, we provide fresh and finely
-              ground spices sourced from the best farms. Our commitment to
-              purity ensures that you get 100% natural, chemical-free, and
-              preservative-free spices.
-            </p>
-          </div>
-          <div className="col-12 text-center">
-            <h3 className="section-title">
-              Third-Party Spice Manufacturing in Noida
-            </h3>
-            <p className="section-subtitle">
-              If you are looking for third-party spice manufacturers in Noida,
-              we offer private-label solutions, customized packaging, and bulk
-              supply. We help businesses build their brand with premium-quality
-              spices tailored to their needs.
-            </p>
-          </div>
-          <div className="col-12 text-center">
-            <h3 className="section-title">Wholesale Spices in Noida</h3>
-            <p className="section-subtitle">
-              We are a reliable wholesale spices supplier in Noida, catering to
-              supermarkets, hotels, and distributors. Our bulk spice supply
-              maintains consistency in quality, freshness, and affordability,
-              making us a preferred choice.
-            </p>
-          </div>
+
+      <div className="container" style={{ marginTop: "45px" }}>
+        <div className="p-5">
+          {pageContent.map((block, index) => {
+            if (block.type === "heading") {
+              const Tag = `h${block.level}`;
+              return <Tag key={index}>{block.text}</Tag>;
+            }
+            if (block.type === "paragraph") {
+              return (
+                <p className="mt-3" key={index}>
+                  {block.text}
+                </p>
+              );
+            }
+            if (block.type === "list") {
+              return (
+                <ul key={index} className=" mt-3">
+                  {block.items.map((item, i) => (
+                    <li key={i}>{item}</li>
+                  ))}
+                </ul>
+              );
+            }
+            return null;
+          })}
         </div>
-        <div className="row p-5">
+
+        {/* FAQ Section */}
+        <div className="accordion p-5" id="accordionExample">
+          {faqs.map((faq, index) => (
+            <div className="accordion-item" key={faq.id}>
+              <h2 className="accordion-header" id={`heading${faq.id}`}>
+                <button
+                  className={`accordion-button ${
+                    index !== 0 ? "collapsed" : ""
+                  }`}
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target={`#collapse${faq.id}`}
+                  aria-expanded={index === 0 ? "true" : "false"}
+                  aria-controls={`collapse${faq.id}`}
+                >
+                  {faq.question}
+                </button>
+              </h2>
+              <div
+                id={`collapse${faq.id}`}
+                className={`accordion-collapse collapse ${
+                  index === 0 ? "show" : ""
+                }`}
+                aria-labelledby={`heading${faq.id}`}
+                data-bs-parent="#accordionExample"
+              >
+                <div className="accordion-body">{faq.answer}</div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <div className="container">
+        <div className="row p-5 ">
           <Card
             product="blended spices"
             image={img1}

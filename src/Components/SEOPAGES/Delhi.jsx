@@ -4,47 +4,74 @@ import Card from "../ThirdParty/Card";
 import img from "../../assets/img/singleform.jpg";
 import img1 from "../../assets/img/Blended.jpg";
 import wholespices from "../../assets/img/Wholespices.jpg";
+import data from "../../Data/delhiData.json";
 
 function Delhi() {
+  const { faqs, pageContent } = data;
   return (
     <>
       <Pagetop2 title="Delhi" />
-      <div className="container">
-        <div className="row p-5">
-          <div className="col-12 text-center">
-            <h3 className="section-title">
-              Leading Spices Manufacturers & Exporters in Delhi NCR
-            </h3>
-            <p className="section-subtitle">
-              We are one of the most trusted spices manufacturers in Delhi,
-              offering premium-quality spices that bring authentic flavors to
-              your kitchen. As a leading spices exporter in Delhi NCR, we take
-              pride in delivering handpicked, freshly processed spices to
-              domestic and international markets. Our extensive range of organic
-              spices in Delhi is sourced from the best farms, ensuring natural
-              goodness without additives or preservatives.
-            </p>{" "}
-            <p className="section-subtitle">
-              As a top spices exporter in Delhi, we maintain strict quality
-              control to meet global standards, providing customers with pure,
-              aromatic, and flavorful spices. Whether you need turmeric, cumin,
-              coriander, or chili powder, we offer a wide variety tailored to
-              your culinary needs. Being a reputable bulk spices supplier in
-              Delhi, we cater to wholesalers, retailers, and food businesses,
-              ensuring timely delivery and competitive pricing.
-            </p>{" "}
-            <p className="section-subtitle">
-              Our commitment to quality, sustainability, and customer
-              satisfaction makes us a preferred choice in the spice industry.
-              With years of expertise, we have built a strong reputation as a
-              leading spices manufacturer in Delhi, delivering excellence with
-              every pack. If youre looking for premium-grade spices with
-              authentic taste and rich aroma, partner with us for the best spice
-              solutions in Delhi NCR.
-            </p>{" "}
-          </div>
+      <div className="container" style={{ marginTop: "45px" }}>
+        <div className="p-5">
+          {pageContent.map((block, index) => {
+            if (block.type === "heading") {
+              const Tag = `h${block.level}`;
+              return <Tag key={index}>{block.text}</Tag>;
+            }
+            if (block.type === "paragraph") {
+              return (
+                <p className="mt-3" key={index}>
+                  {block.text}
+                </p>
+              );
+            }
+            if (block.type === "list") {
+              return (
+                <ul key={index} className=" mt-3">
+                  {block.items.map((item, i) => (
+                    <li key={i}>{item}</li>
+                  ))}
+                </ul>
+              );
+            }
+            return null;
+          })}
         </div>
-        <div className="row p-5">
+
+        {/* FAQ Section */}
+        <div className="accordion p-5" id="accordionExample">
+          {faqs.map((faq, index) => (
+            <div className="accordion-item" key={faq.id}>
+              <h2 className="accordion-header" id={`heading${faq.id}`}>
+                <button
+                  className={`accordion-button ${
+                    index !== 0 ? "collapsed" : ""
+                  }`}
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target={`#collapse${faq.id}`}
+                  aria-expanded={index === 0 ? "true" : "false"}
+                  aria-controls={`collapse${faq.id}`}
+                >
+                  {faq.question}
+                </button>
+              </h2>
+              <div
+                id={`collapse${faq.id}`}
+                className={`accordion-collapse collapse ${
+                  index === 0 ? "show" : ""
+                }`}
+                aria-labelledby={`heading${faq.id}`}
+                data-bs-parent="#accordionExample"
+              >
+                <div className="accordion-body">{faq.answer}</div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+      <div className="container">
+        <div className="row p-5 ">
           <Card
             product="blended spices"
             image={img1}

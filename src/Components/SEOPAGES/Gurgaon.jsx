@@ -4,37 +4,74 @@ import Card from "../ThirdParty/Card";
 import img from "../../assets/img/singleform.jpg";
 import img1 from "../../assets/img/Blended.jpg";
 import wholespices from "../../assets/img/Wholespices.jpg";
+import data from "../../Data/GurgaonData.json";
 
 function Gurgaon() {
+  const { faqs, pageContent } = data;
   return (
     <>
       <Pagetop2 title="Gurgaon" />
-      <div className="container">
-        <div className="row p-5">
-          <div className="col-12 text-center">
-            <h3 className="section-title">
-              Unleash the Flavors of India with Gurgaon Spice Experts
-            </h3>
-            <p className="section-subtitle">
-              We are your gateway to premium quality, offering a vast array of
-              choices from everyday essentials to rare, exotic blends. As a
-              leading Spices Manufacturer in Gurgaon, we meticulously source and
-              process our spices to ensure unparalleled freshness and potency.
-              For restaurants and food businesses seeking the Best Masala
-              Supplier in Gurgaon, we provide consistent, high-quality blends
-              tailored to your specific needs. Discover the convenience and
-              affordability of our Wholesale Spices in Gurgaon, perfect for bulk
-              orders. We also cater to the growing demand for natural products
-              with our Organic Spices Supplier in Gurgaon, ensuring pure,
-              unadulterated flavors. For global distribution, our experienced
-              Spices Exporters in Gurgaon handle all logistics, delivering the
-              finest spices worldwide. If you require large quantities, our Bulk
-              Spices Supplier in Gurgaon can meet your demands, ensuring a
-              steady supply of premium spices.
-            </p>
-          </div>
+      <div className="container" style={{ marginTop: "45px" }}>
+        <div className="p-5">
+          {pageContent.map((block, index) => {
+            if (block.type === "heading") {
+              const Tag = `h${block.level}`;
+              return <Tag key={index}>{block.text}</Tag>;
+            }
+            if (block.type === "paragraph") {
+              return (
+                <p className="mt-3" key={index}>
+                  {block.text}
+                </p>
+              );
+            }
+            if (block.type === "list") {
+              return (
+                <ul key={index} className=" mt-3">
+                  {block.items.map((item, i) => (
+                    <li key={i}>{item}</li>
+                  ))}
+                </ul>
+              );
+            }
+            return null;
+          })}
         </div>
-        <div className="row p-5">
+
+        {/* FAQ Section */}
+        <div className="accordion p-5" id="accordionExample">
+          {faqs.map((faq, index) => (
+            <div className="accordion-item" key={faq.id}>
+              <h2 className="accordion-header" id={`heading${faq.id}`}>
+                <button
+                  className={`accordion-button ${
+                    index !== 0 ? "collapsed" : ""
+                  }`}
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target={`#collapse${faq.id}`}
+                  aria-expanded={index === 0 ? "true" : "false"}
+                  aria-controls={`collapse${faq.id}`}
+                >
+                  {faq.question}
+                </button>
+              </h2>
+              <div
+                id={`collapse${faq.id}`}
+                className={`accordion-collapse collapse ${
+                  index === 0 ? "show" : ""
+                }`}
+                aria-labelledby={`heading${faq.id}`}
+                data-bs-parent="#accordionExample"
+              >
+                <div className="accordion-body">{faq.answer}</div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+      <div className="container">
+        <div className="row p-5 ">
           <Card
             product="blended spices"
             image={img1}
@@ -53,7 +90,6 @@ function Gurgaon() {
           />
         </div>
       </div>
-
       <section className="bg-white container">
         <div className="py-5 lg:py-16 mx-auto max-w-screen-md">
           <h2 className="mb-4 text-4xl font-weight-bold text-center text-dark">

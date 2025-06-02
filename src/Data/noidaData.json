@@ -1,0 +1,82 @@
+{
+  "faqs": [
+    {
+      "id": 1,
+      "question": "Who is the best spices wholesaler in Noida?",
+      "answer": "Kafal Spices supplies a wide range of spices in bulk at wholesale prices with fast delivery and quality assurance."
+    },
+    {
+      "id": 2,
+      "question": "Do you supply organic spices in Noida?",
+      "answer": "Yes. We offer certified organic turmeric, cumin, and chilli in retail and bulk quantities."
+    },
+    {
+      "id": 3,
+      "question": "Can you handle export orders?",
+      "answer": "Absolutely. We support full export documentation and packaging for international shipments."
+    }
+  ],
+  "pageContent": [
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Best Spices in Noida – Manufacturer, Exporter & Wholesaler"
+    },
+    {
+      "type": "paragraph",
+      "text": "Looking for high-quality spices in Noida? Kafal Spices is a trusted name among the best spices manufacturers in Noida, offering pure, flavorful Indian masalas—sourced, processed, and packed for businesses that value quality and consistency."
+    },
+    {
+      "type": "heading",
+      "level": 4,
+      "text": "Your Reliable Spices Partner in Noida"
+    },
+    {
+      "type": "paragraph",
+      "text": "We supply to:"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Restaurants & hotels",
+        "Retail chains & Kirana stores",
+        "Exporters & wholesalers",
+        "Private label brands (OEM)"
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "With a strong production base in Noida, we ensure fast delivery and bulk fulfillment."
+    },
+    {
+      "type": "heading",
+      "level": 5,
+      "text": "Products We Offer"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Ground Spices – Red Chilli, Turmeric, Coriander",
+        "Whole Spices – Cumin, Cloves, Pepper",
+        "Blended Masalas – Garam Masala, Chole Masala, Kitchen King",
+        "Organic Spices – Certified organic turmeric, cumin, chilli",
+        "Custom Packing – Private label, bulk packs, OEM supply"
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 5,
+      "text": "Why Businesses Choose Us"
+    },
+    {
+      "type": "list",
+      "items": [
+        "✅ Fresh, pure, and lab-tested spices",
+        "✅ Bulk & wholesale pricing",
+        "✅ Custom packaging & private labeling",
+        "✅ Fast delivery across Noida & NCR",
+        "✅ Export support & documentation"
+      ]
+    }
+  ]
+}
