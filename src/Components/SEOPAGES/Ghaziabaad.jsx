@@ -12,10 +12,10 @@ function Ghaziabaad() {
     <>
       <Pagetop2 title="Ghaziabad" />
       <div className="container" style={{ marginTop: "45px" }}>
-              <div className="p-5">
+              <div className="pt-5">
                 {pageContent.map((block, index) => {
                   if (block.type === "heading") {
-                    const Tag = `h${block.level}`;
+                    const Tag = `h4`;
                     return <Tag key={index}>{block.text}</Tag>;
                   }
                   if (block.type === "paragraph") {
@@ -39,7 +39,7 @@ function Ghaziabaad() {
               </div>
       
               {/* FAQ Section */}
-              <div className="accordion p-5" id="accordionExample">
+              <div className="accordion pt-5" id="accordionExample">
                 {faqs.map((faq, index) => (
                   <div className="accordion-item" key={faq.id}>
                     <h2 className="accordion-header" id={`heading${faq.id}`}>
@@ -71,7 +71,7 @@ function Ghaziabaad() {
               </div>
             </div>
             <div className="container">
-              <div className="row p-5 ">
+              <div className="row  ">
                 <Card
                   product="blended spices"
                   image={img1}
@@ -100,7 +100,7 @@ function Ghaziabaad() {
             Got a technical issue? Want to send feedback about a beta feature?
             Need details about our Business plan? Let us know.
           </p>
-          <form action="#" className="space-y-8 p-5">
+          <form action="#" className="space-y-8">
             <div className="form-group">
               <input
                 type="text"
