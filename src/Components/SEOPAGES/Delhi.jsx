@@ -11,35 +11,49 @@ function Delhi() {
   return (
     <>
       <Pagetop2 title="Delhi" />
-      <div className="container" style={{ marginTop: "45px" }}>
-        <div className="pt-5">
-          {pageContent.map((block, index) => {
-            if (block.type === "heading") {
-              const Tag = `h4`;
-              return <Tag key={index}>{block.text}</Tag>;
-            }
-            if (block.type === "paragraph") {
-              return (
-                <p className="mt-3" key={index}>
-                  {block.text}
-                </p>
-              );
-            }
-            if (block.type === "list") {
-              return (
-                <ul key={index} className=" mt-3">
-                  {block.items.map((item, i) => (
-                    <li key={i}>{item}</li>
-                  ))}
-                </ul>
-              );
-            }
-            return null;
-          })}
+      <div className="container">
+        <div className="product_details">
+          <div className="container">
+            <div className="row">
+              <div className="col-xs-12 col-sm-12 col-md-12 col-lg-6">
+                <div className="producudetails_content">
+                  {pageContent.map((block, index) => {
+                    if (block.type === "heading") {
+                      return <h3 key={index}>{block.text}</h3>;
+                    }
+                    if (block.type === "paragraph") {
+                      return <p key={index}>{block.text}</p>;
+                    }
+                    if (block.type === "list") {
+                      return (
+                        <ul key={index} className=" my-3">
+                          {block.items.map((item, i) => (
+                            <li key={i}>{item}</li>
+                          ))}
+                        </ul>
+                      );
+                    }
+                    return null;
+                  })}
+                </div>
+              </div>{" "}
+              <div className="col-xs-12 col-sm-12 col-md-12 col-lg-6">
+                <div className="product_img d-flex">
+                  <div className="big_img">
+                    <img
+                      src="https://spicesmanufacturer.in/assets/Blended-aWUUfBYA.jpg"
+                      className="w-100 img-fluid"
+                      alt="matchingProduct"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
 
         {/* FAQ Section */}
-        <div className="accordion pt-5" id="accordionExample">
+        <div className="accordion py-5" id="accordionExample">
           {faqs.map((faq, index) => (
             <div className="accordion-item" key={faq.id}>
               <h2 className="accordion-header" id={`heading${faq.id}`}>

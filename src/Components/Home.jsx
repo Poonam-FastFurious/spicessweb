@@ -14,7 +14,6 @@ import Ourproducts from "./Product";
 function Home() {
   return (
     <div>
-     
       <Banner />
       <Feature />
       <Ourproducts />
