@@ -41,7 +41,7 @@ function Faridabaad() {
                 <div className="product_img d-flex">
                   <div className="big_img">
                     <img
-                      src="https://spicesmanufacturer.in/assets/Blended-aWUUfBYA.jpg"
+                      src={img1}
                       className="w-100 img-fluid"
                       alt="matchingProduct"
                     />
